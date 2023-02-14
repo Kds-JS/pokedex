@@ -76,6 +76,7 @@
     @media screen and (min-width: 768px) {
         .stats{
             font-size: 14px;
+            padding: 0 15%;
         }
 
         .charts div div{

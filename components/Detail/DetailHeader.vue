@@ -136,5 +136,13 @@
             height: 55px;
             width: 55px;
         }
+
+        .pokeball{
+            top: 14px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 </style>

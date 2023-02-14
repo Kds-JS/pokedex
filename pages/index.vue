@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <Title>Nuxt Dojo </Title>
+        <Meta name="description" content="d"/>
+    </Head>
   <main>
     <HomeHeader :inputValue="inputValue" :onInput="onInput" :clearInputValue="clearInputValue"/>
     <PokedexList :pokemons="pokemons"/>

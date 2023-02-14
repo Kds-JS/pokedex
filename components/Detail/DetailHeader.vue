@@ -12,7 +12,7 @@
 
         <div class="icon">
             <Icon icon="material-symbols:chevron-left"/>
-            <Icon icon="material-symbols:chevron-right" @click="increment"/>
+            <Icon icon="material-symbols:chevron-right"/>
         </div>
 
         <div class="image">

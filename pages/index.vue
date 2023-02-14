@@ -1,7 +1,7 @@
 <template>
     <Head>
-        <Title>Nuxt Dojo </Title>
-        <Meta name="description" content="d"/>
+        <Title>Pokemon Collection </Title>
+        <Meta name="description" content="Pokemon Collection"/>
     </Head>
   <main>
     <HomeHeader :inputValue="inputValue" :onInput="onInput" :clearInputValue="clearInputValue"/>

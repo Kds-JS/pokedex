@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <Title>Pokemon || {{ pokemon.name }} </Title>
+        <Meta name="description" :content="pokemon.name"/>
+    </Head>
     <main :style="{backgroundColor:  color[pokemon.types[0].type.name]}">
       
       <DetailHeader :pokemon="pokemon"/>

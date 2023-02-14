@@ -13,10 +13,11 @@
               <input
               type="text" 
               id="search-input" placeholder='Search '
-              v-model="name"
+              :value="inputValue"
+              @input="onInput"
               />
   
-              <div @click="() => name=''" class="close-icon" :class="{show : name}">
+              <div @click="clearInputValue" class="close-icon" :class="{show : inputValue}">
                   <Icon icon="material-symbols:close"/>
               </div>
               
@@ -27,14 +28,16 @@
               </div>
   
           </div>
+
+          
       </section>
   </template>
   
   <script setup>
       import { Icon } from '@iconify/vue';
-      import { ref } from 'vue'
+      const { inputValue, onInput, clearInputValue} = defineProps(['inputValue', 'onInput', 'clearInputValue']);
 
-      const name = ref('');
+      
   </script>
   
   <style scoped>

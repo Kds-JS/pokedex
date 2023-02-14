@@ -1,17 +1,9 @@
 <template>
   <section>
     <div class="container">
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
-        <PokedexCard/>
+        <div v-for="pokemon in pokemons" :key="pokemon.id">
+            <PokedexCard :pokemon="pokemon"/>
+        </div>
     </div>
 
   </section>
@@ -19,6 +11,8 @@
 
 <script setup>
     import PokedexCard from './PokedexCard.vue';
+    const { pokemons} = defineProps(['pokemons'])
+    // console.log(pokemons);
 </script>
 
 <style scoped>
@@ -26,6 +20,7 @@
         background-color: white;
         border-radius: 8px;
         padding: 24px 12px;
+        min-height: 80vh;
     }
 
     .container{

@@ -1,22 +1,22 @@
 <template>
-  <section>
+  <section :style="{backgroundColor:  color[pokemon.types[0].type.name]}">
     <div class="title">
         <NuxtLink to="/">
             <Icon icon="ic:round-arrow-back"/>
         </NuxtLink>
-        <h1>Pokémon name</h1>
-        <span>#044</span>
+        <h1 >{{pokemon.name}}</h1>
+        <span>#{{pokemon.id}}</span>
     </div>
 
     <div class="item">
 
         <div class="icon">
             <Icon icon="material-symbols:chevron-left"/>
-            <Icon icon="material-symbols:chevron-right"/>
+            <Icon icon="material-symbols:chevron-right" @click="increment"/>
         </div>
 
         <div class="image">
-        <img src="../../assets/Silhouette.png" alt="image">
+        <img :src="pokemon.sprites.front_default" alt="image">
         </div>
 
     </div>
@@ -30,7 +30,11 @@
 </template>
 
 <script setup>
+    import {color} from '../../utils/color';
     import { Icon } from '@iconify/vue';
+
+    const { pokemon} = defineProps(['pokemon']);
+    // console.log(pokemon);
 </script>
 
 <style scoped>
@@ -61,6 +65,10 @@
     .title h1{
         flex-grow: 1;
         font-size: 24px;
+    }
+
+    .title h1::first-letter{
+        text-transform: uppercase;
     }
 
     .item{

@@ -1,69 +1,30 @@
 <template>
   <div class="stats">
     <div class="labels">
-        <span>HP</span>
-        <span>HP</span>
-        <span>DOP</span>
-        <span>SHP</span>
-        <span>HP</span>
-        <span>HPUI</span>
+        <span v-for="element in pokemon.stats" :key="element.stat.name" :style="{color:  color[pokemon.types[0].type.name]}">
+            {{ element.stat.name }}
+        </span>
+        
     </div>
 
     <div class="charts">
-        <div>
-            <span>999</span>
+        <div v-for="element in pokemon.stats" :key="element.stat.name">
+            <span>{{ element.base_stat }}</span>
             <div>
-                <div id="chart">
+                <div :style="{ width: element.base_stat + '%', backgroundColor:  color[pokemon.types[0].type.name]}">
 
                 </div>
             </div>
         </div>
-        <div>
-            <span>999</span>
-            <div>
-                <div id="chart">
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <span>999</span>
-            <div>
-                <div id="chart">
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <span>999</span>
-            <div>
-                <div id="chart">
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <span>999</span>
-            <div>
-                <div id="chart">
-
-                </div>
-            </div>
-        </div>
-        <div>
-            <span>999</span>
-            <div>
-                <div id="chart">
-
-                </div>
-            </div>
-        </div>
+        
     </div>
   </div>
 </template>
 
 <script setup>
-
+    import {color} from '../../utils/color';
+    const { pokemon} = defineProps(['pokemon'])
+    // console.log(color);
 </script>
 
 <style scoped>
@@ -81,7 +42,6 @@
 
     .labels span{
         font-weight: 700;
-        color: #B8B8B8;
     }
 
     .charts{
@@ -110,10 +70,8 @@
         width: 100%;
     }
 
-    #chart{
-        width: 45%;
-        background: #B8B8B8;
-    }
+
+    
 
     @media screen and (min-width: 768px) {
         .stats{

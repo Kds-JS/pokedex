@@ -1,0 +1,20 @@
+export const color = {
+    normal: '#B2AE8B',
+    fighting: '#C12239',
+    flying: '#C3B3F2',
+    ground: '#E2C97D',
+    poison: '#AC50A7',
+    rock: '#B69E31',
+    bug: '#A7B723',
+    ghost: '#70559B',
+    steel: '#B7B9D0',
+    fire: '#F5853D',
+    water: '#6493EB',
+    grass: '#74CB48',
+    electric: '#F9CF30',
+    psychic: '#FB5584',
+    ice: '#9AD6DF',
+    dragon: '#7037FF',
+    dark: '#75574C',
+    fairy: '#E69EAC'
+}

@@ -1,23 +1,26 @@
 <template>
-  <div class="card">
-    <div class="number">
-        <div>
-            <span>#044</span>
+    <NuxtLink :to="`/pokemon/${pokemon.id}`">
+        <div class="card">
+            <div class="number">
+                <div>
+                    <span>#{{ pokemon.id }}</span>
+                </div>
+            </div>
+
+            <div class="image">
+                <img :src="pokemon.sprites.front_default" :alt="pokemon.name">
+            </div>
+
+            <div class="title">
+                <span>{{ pokemon.name }}</span>
+            </div>
         </div>
-    </div>
-
-    <div class="image">
-        <img src="../../assets/Silhouette.png" alt="image">
-    </div>
-
-    <div class="title">
-        <span>Pokémon name</span>
-    </div>
-  </div>
+    </NuxtLink>
 </template>
 
 <script setup>
-
+    const { pokemon} = defineProps(['pokemon'])
+    // console.log(pokemon);
 </script>
 
 <style scoped>
@@ -41,6 +44,7 @@
     img{
         height: 100%;
         width: 100%;
+        object-fit: cover;
     }
 
     .number{
@@ -70,6 +74,10 @@
         font-weight: 400;
         font-size: 10px;
         color: #1D1D1D;
+    }
+
+    .title span::first-letter{
+        text-transform: uppercase;
     }
 
     @media screen and (min-width: 1280px) {

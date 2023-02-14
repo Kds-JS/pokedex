@@ -91,10 +91,9 @@
     .item .icon svg{
         height: 24px;
         width: 24px;
-        cursor: pointer;
     }
 
-    svg:hover{
+    .title svg:hover{
         color: rgb(242, 227, 227);
     }
 

@@ -32,20 +32,14 @@
     }
     .image{
         position: absolute;
-        width: 72px;
-        height: 72px;
+        width: 100%;
         left: 0;
         right: 0;
-        top: 16px;
-        margin-left: auto; 
-        margin-right: auto;
+        bottom: 16px;
+        display: flex;
+        justify-content: center;
     }
 
-    img{
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
 
     .number{
         height: 64px;

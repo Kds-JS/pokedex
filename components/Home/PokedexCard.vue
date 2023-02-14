@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="`/pokemon/${pokemon.id}`">
+    <NuxtLink :to="`/pokemon/${pokemon.name}`">
         <div class="card">
             <div class="number">
                 <div>

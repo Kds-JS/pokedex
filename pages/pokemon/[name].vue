@@ -16,8 +16,8 @@
       import DetailHeader from '~~/components/Detail/DetailHeader.vue';
       import {color} from '../../utils/color';
 
-    const {id} = useRoute().params;
-    const uri = 'https://pokeapi.co/api/v2/pokemon/' + id;
+    const {name} = useRoute().params;
+    const uri = 'https://pokeapi.co/api/v2/pokemon/' + name;
     // fetch the pokemon
     const {data: pokemon} = await useFetch(uri);
   

@@ -5,7 +5,7 @@
     </Head>
     <main :style="{backgroundColor:  color[pokemon.types[0].type.name]}">
       
-      <DetailHeader :pokemon="pokemon"/>
+      <DetailHeader :pokemon="pokemon" :previewPokemon="previewPokemon" :nextPokemon="nextPokemon" />
       
       <DetailDescritpion :pokemon="pokemon"/>
     </main>
@@ -15,13 +15,33 @@
       import DetailDescritpion from '~~/components/Detail/DetailDescritpion.vue';
       import DetailHeader from '~~/components/Detail/DetailHeader.vue';
       import {color} from '../../utils/color';
+      import {ref} from 'vue';
 
-    const {name} = useRoute().params;
-    const uri = 'https://pokeapi.co/api/v2/pokemon/' + name;
+    let {id} = useRoute().params;
+    const newId = ref(id);
+    let uri = 'https://pokeapi.co/api/v2/pokemon/' + id;
     // fetch the pokemon
-    const {data: pokemon} = await useFetch(uri);
+    let {data: pokemon} = await useFetch(uri);
   
     // console.log(pokemon);
+
+    watch(newId, async () => {
+        let uri = 'https://pokeapi.co/api/v2/pokemon/' + newId.value;
+        const {data: newPokemon} = await useFetch(uri);
+        pokemon = newPokemon;
+        console.log(pokemon);
+    })
+
+    function nextPokemon() {
+        newId.value++;
+        console.log(newId.value);
+    }
+
+    function previewPokemon() {
+        if(newId.value !== 1) {
+            newId.value--;
+        }
+    }
 
     
   </script>

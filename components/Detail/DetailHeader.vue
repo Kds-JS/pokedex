@@ -11,8 +11,8 @@
     <div class="item">
 
         <div class="icon">
-            <Icon icon="material-symbols:chevron-left"/>
-            <Icon icon="material-symbols:chevron-right"/>
+            <Icon icon="material-symbols:chevron-left" @click="previewPokemon"/>
+            <Icon icon="material-symbols:chevron-right" @click="nextPokemon"/>
         </div>
 
         <div class="image">
@@ -33,7 +33,7 @@
     import {color} from '../../utils/color';
     import { Icon } from '@iconify/vue';
 
-    const { pokemon} = defineProps(['pokemon']);
+    const { pokemon, previewPokemon, nextPokemon} = defineProps(['pokemon', 'previewPokemon', 'nextPokemon']);
     // console.log(pokemon);
 </script>
 
@@ -91,6 +91,7 @@
     .item .icon svg{
         height: 24px;
         width: 24px;
+        cursor: pointer;
     }
 
     .title svg:hover{

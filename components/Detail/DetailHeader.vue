@@ -11,8 +11,13 @@
     <div class="item">
 
         <div class="icon">
-            <Icon icon="material-symbols:chevron-left" @click="previewPokemon"/>
-            <Icon icon="material-symbols:chevron-right" @click="nextPokemon"/>
+            <NuxtLink :to="`/pokemon/${pokemon.id != 1 ? pokemon.id - 1 : pokemon.id}`" >
+                <Icon icon="material-symbols:chevron-left" />
+            </NuxtLink>
+
+            <NuxtLink :to="`/pokemon/${pokemon.id + 1}`">
+                <Icon icon="material-symbols:chevron-right" />
+            </NuxtLink>
         </div>
 
         <div class="image">

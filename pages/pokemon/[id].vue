@@ -17,24 +17,21 @@
       import {color} from '../../utils/color';
       import {ref} from 'vue';
 
-    let {id} = useRoute().params;
+    const {id} = useRoute().params;
     const newId = ref(id);
-    let uri = 'https://pokeapi.co/api/v2/pokemon/' + id;
-    // fetch the pokemon
-    let {data: pokemon} = await useFetch(uri);
-  
-    // console.log(pokemon);
 
-    watch(newId, async () => {
-        let uri = 'https://pokeapi.co/api/v2/pokemon/' + newId.value;
-        const {data: newPokemon} = await useFetch(uri);
-        pokemon = newPokemon;
-        console.log(pokemon);
-    })
+    const { data: pokemon } = await useAsyncData(
+    'pokemon',
+    () => $fetch(`https://pokeapi.co/api/v2/pokemon/${newId.value}`, {
+        params: {
+        newId: newId.value,
+        },
+    }),
+    { watch: [newId] }
+    );
 
     function nextPokemon() {
         newId.value++;
-        console.log(newId.value);
     }
 
     function previewPokemon() {
